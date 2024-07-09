@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 
 import { CountUp } from "@/components/CountUp";
 import { calculateValue } from "@/utils/calculateValue";
+import { Suspense } from "react";
 
 export default function Results() {
   const searchParams = useSearchParams();
@@ -31,25 +32,27 @@ export default function Results() {
   });
 
   return (
-    <div className="py-16 h-full flex flex-col items-center">
-      <Image
-        src="/chikenchicken.png"
-        width={180}
-        height={180}
-        alt="ローストチキン"
-      />
-      <h1 className="my-8">結果！</h1>
-      <div className="flex flex-col items-center">
-        <p>おめでとう！🥳</p>
-        <p className="flex">あなたはニワトリ</p>
-        <CountUp end={chickens} duration={2500} />
+    <Suspense>
+      <div className="py-16 h-full flex flex-col items-center">
+        <Image
+          src="/chikenchicken.png"
+          width={180}
+          height={180}
+          alt="ローストチキン"
+        />
+        <h1 className="my-8">結果！</h1>
+        <div className="flex flex-col items-center">
+          <p>おめでとう！🥳</p>
+          <p className="flex">あなたはニワトリ</p>
+          <CountUp end={chickens} duration={2500} />
 
-        <small className="mt-2">友達にシェアしてみてね！</small>
+          <small className="mt-2">友達にシェアしてみてね！</small>
+        </div>
+
+        <Link href="/" className="mt-12 underline text-blue-800">
+          もう一回計算してみる？
+        </Link>
       </div>
-
-      <Link href="/" className="mt-12 underline text-blue-800">
-        もう一回計算してみる？
-      </Link>
-    </div>
+    </Suspense>
   );
 }
