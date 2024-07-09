@@ -61,10 +61,6 @@ export default function Woman() {
         </small>
       </p>
 
-      <p className="text-left w-full mt-4">
-        ↓ まずは調べる方の性別を選択しよう！
-      </p>
-
       <SimpleForm
         onSubmit={handleSubmit(onSubmit)}
         className="w-full my-4 p-4 rounded-md bg-red-50 gap-3 flex flex-col items-center"
