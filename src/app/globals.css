@@ -2,32 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  * {
+    @apply scroll-smooth box-border m-0 p-0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h1 {
+    @apply font-notosansjp font-medium text-3xl text-red-400;
+  }
+
+  h2 {
+    @apply font-notosansjp font-medium text-2xl;
+  }
+
+  h6 {
+    @apply font-notosansjp font-medium text-base;
+  }
+
+  strong {
+    @apply font-notosansjp font-medium text-base;
+  }
+
+  p {
+    @apply font-notosansjp font-normal text-base;
+  }
+
+  a {
+    @apply font-notosansjp font-normal text-base no-underline;
+    @apply hover:opacity-60 ease-in duration-200;
+  }
+
+  small {
+    @apply font-notosansjp font-normal text-sm;
+  }
+
+  button {
+    @apply font-notosansjp cursor-pointer;
+    @apply ease-in duration-200;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .font-notosansjp {
+    font-family: var(--font-notosansjp);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (max-width: 1024px) {
+  html {
+    /* 15px */
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    /* 14px */
+    font-size: 87.5%;
   }
 }
